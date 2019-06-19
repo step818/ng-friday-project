@@ -15,7 +15,17 @@ import { LeaveCommentComponent } from './viewapp/leave-comment/leave-comment.com
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { routing } from './app.routing';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [

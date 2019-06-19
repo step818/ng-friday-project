@@ -30,10 +30,13 @@ This exercise is designed to be a hub for DIY and "How-to" projects uploaded by 
 2. Install the required packages:
 
        $ npm install
-3. Build the application:
+3. Acquire your _own_ Firebase credentials and place them in the appropriate files, with the appropriate variable names.
+
+       You'll need an apiKey, authDomain, databaseURL, and messagingSenderId 
+4. Build the application:
 
        $ npm run build
-4. Run the application:
+5. Run the application:
 
        $ ng serve -o
 
