@@ -18,6 +18,11 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
+  deleteProject(localProjectToDelete){
+    var projectEntryInFirebase = this.getProjectById(localProjectToDelete.$key);
+    projectEntryInFirebase.remove();
+  }
+
   getProjectById(projectId: string) {
    return this.database.object('/projects/' + projectId);
   }

@@ -19,4 +19,10 @@ export class EditProjectComponent implements OnInit {
     this.projectService.updateProject(projectToUpdate);
   }
 
+  beginDeletingAlbum(albumToDelete){
+    if(confirm("Are you sure you want to delete this project from your database?")){
+      this.projectService.deleteProject(projectToDelete);
+    }
+  }
+
 }

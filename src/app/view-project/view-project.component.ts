@@ -13,15 +13,18 @@ import { FirebaseObjectObservable } from 'angularfire2/database';
 })
 export class ViewProjectComponent implements OnInit {
   projectId: string;
-  projectToDisplay;
+  projectToDisplay: Project;
 
   constructor(private route: ActivatedRoute, private location: Location, private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.route.params.forEach((urlParameters) => {
-      this.projectId = urlParameters['id'];
+    this.route.params.forEach((urlParametersArray) => {
+      this.projectId = urlParametersArray['id'];
     });
-    this.projectToDisplay = this.projectService.getProjectById(this.projectId);
+    this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
+      this.projectToDisplay = new Project(dataLastEmittedFromObserver.title, dataLastEmittedFromObserver.category,
+        dataLastEmittedFromObserver.description, dataLastEmittedFromObserver.difficulty, dataLastEmittedFromObserver.steps)
+    })
   }
 
 }
