@@ -13,6 +13,7 @@ import { ProjectService } from '../project.service';
 })
 export class AllProjectsComponent implements OnInit {
   projects: FirebaseListObservable<any[]>;
+  currentRoute: string = this.router.url;
 
   constructor(private router: Router, private projectService: ProjectService) {}
 
@@ -24,6 +25,4 @@ export class AllProjectsComponent implements OnInit {
   goToProjectPage(clickedProject: Project) {
     this.router.navigate(['projects', clickedProject.$key]);
   };
-  
-
 }

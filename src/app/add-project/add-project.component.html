@@ -1,29 +1,35 @@
-
-<h3>Add a New Project to your profile</h3>
 <div>
-  <label>Project Title:</label>
-  <br>
-  <input type="text" #newProject><br><br>
+  <h3>Add a New Project to your profile</h3>
+  <div>
+    <label>Project Title:</label>
+    <br>
+    <input type="text" #newProject><br><br>
 
-  <label>Select a category:</label>
-  <br>
-  <input #newCategory><br><br>
+    <label>Select a category:</label>
+    <br>
+    <input #newCategory><br><br>
 
-  <label>Description:</label>
-  <br>
-  <input type="text" #newDescription><br><br>
+    <label>Description:</label>
+    <br>
+    <input type="text" #newDescription><br><br>
 
-  <label>Select the difficulty:</label>
-  <br>
- <input #newDifficulty><br><br>
+    <label>Select the difficulty:</label>
+    <br>
+  <input #newDifficulty><br><br>
 
-  <label>About how many steps:</label>
-  <br>
-  <input #newNumberOfSteps><br><br>
-  
-  <label>List steps:</label>
-  <br>
-  <input type="text" #newSteps><br><br>
+    <label>About how many steps:</label>
+    <br>
+    <input #newNumberOfSteps><br><br>
+    
+    <label>List steps:</label>
+    <br>
+    <input type="text" #newSteps><br><br>
+  </div>
+
+  <button (click)="createNewProject(newTitle.value, newCategory.value, newDescription.value, newDifficulty.value, newSteps.value); newTitle.value=''; newCategory.value=''; newDescription.value=''; newDifficulty=''; newSteps=''">Create!</button>
 </div>
 
-<button (click)="createNewProject(newTitle.value, newCategory.value, newDescription.value, newDifficulty.value, newSteps.value); newTitle.value=''; newCategory.value=''; newDescription.value=''; newDifficulty=''; newSteps=''">Create!</button>
+
+<div>
+  <app-all-projects></app-all-projects>
+</div>

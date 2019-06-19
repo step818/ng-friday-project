@@ -1,8 +1,12 @@
-<p>
-  all-projects works!
-</p>
-<div *ngFor="let project of projects | async" (click)="goToProjectPage(project)" class="panel panel-default">
+<h2>All Projects</h2>
+
+<div *ngFor="let project of projects | async" class="panel panel-default">
   <div class="panel-body">
-    <h3><em>{{project.title}}</em> in {{project.category}}</h3>
+    <h3 (click)="goToProjectPage(project)"><em>{{project.title}}</em> in {{project.category}}</h3>
+    <div *ngIf="currentRoute === '/user'">
+      {{project.description}}
+      <hr>
+      <app-edit-project [selectedProject]="project"></app-edit-project>
+    </div>
   </div>
 </div>
