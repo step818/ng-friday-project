@@ -1,24 +1,23 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Project } from '../models/project.model';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.css']
+  styleUrls: ['./add-project.component.css'],
+  providers: [ProjectService]
 })
-export class AddProjectComponent {
-  @Output() sendProject = new EventEmitter();
+export class AddProjectComponent implements OnInit {
 
-  createNewProject(title: string, category: string, description: string, difficulty: string, numberOfSteps: number, steps: string[], id: number) {
-    let newProject: Project = new Project(title, category, description, difficulty, numberOfSteps, steps, id);
-    this.sendProject.emit(newProject);
-  }
-
-
-  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  createNewProject(title: string, category: string, description: string, difficulty: string, steps: string[]) {
+    var newProject: Project = new Project(title, category, description, difficulty, steps);
+    this.projectService.addProject(newProject);
   }
 
 }

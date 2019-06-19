@@ -16,6 +16,10 @@ const appRoutes: Routes = [
   {
     path: 'projects/:id',
     component: ViewProjectComponent
+  },
+  {
+    path: 'user',
+    component: AddProjectComponent
   }
 ];
 

@@ -2,12 +2,11 @@
   view-project works!
 </p>
 <div class="details">
-  <h3>{{projectToDisplay.title}}</h3>
-  <h4>{{projectToDisplay.category}}</h4>
-  <p>{{projectToDisplay.description}}</p>
-  <p>{{projectToDisplay.difficulty}}</p>
-  <p>{{projectToDisplay.numberOfSteps}}</p>
-  <p>{{projectToDisplay.steps}}</p>
+  <h3>{{(projectToDisplay | async)?.title}}</h3>
+  <h4>{{(projectToDisplay | async)?.category}}</h4>
+  <p>{{(projectToDisplay | async)?.description}}</p>
+  <p>{{(projectToDisplay | async)?.difficulty}}</p>
+  <p>{{(projectToDisplay | async)?.steps}}</p>
 </div>
 <h2>This project has id number: {{projectId}}</h2>
 <!-- Instance of single Project displayed and formatted. Edit button(for user only?), button to display comments, form and button to add comment -->
